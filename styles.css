@@ -1,0 +1,71 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(255, 247, 240);
+}
+
+
+.hidden{
+    opacity: 0;
+    transition: all 1s;
+}
+.show{
+    opacity: 1;
+}
+
+
+.login{
+    width: 30%;
+    margin: auto;
+    background-color: white;
+    border-radius: 1em;
+    text-align: center;
+    color: black;
+}
+
+.login-info{
+    width: 60%;
+    margin: auto;
+    padding-top: 1em;
+}
+
+.login-button{
+    margin-top: 3em;
+    width: 20%;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 3em;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+input{
+    width: 100%;
+    height: 2em;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.title{
+    text-align: center;
+    font-size: 5em;
+    color: rgb(13, 188, 13);
+}
+
+div{
+    /*border: 1px solid black;*/
+}
+.flex{
+    display: flex;
+}
+.main{
+    width: 75%;
+}
+.tomorrow{
+    text-align: center;
+    width: 25%;
+}
