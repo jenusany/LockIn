@@ -20,6 +20,11 @@ body{
     border-radius: 1em;
     text-align: center;
     color: black;
+
+}
+
+.space{
+    width: 10%;
 }
 
 .login-info{
@@ -41,6 +46,12 @@ body{
 a{
     text-decoration: none;
     color: black;
+    border-bottom: 1px solid black;
+}
+
+.signup-heading{
+    line-height: 1em;
+    padding-bottom: 2em;
 }
 
 input{
@@ -55,13 +66,11 @@ input{
     font-size: 5em;
     color: rgb(13, 188, 13);
 }
-
-div{
-    /*border: 1px solid black;*/
-}
 .flex{
     display: flex;
 }
+
+
 .main{
     width: 75%;
 }
