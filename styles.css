@@ -122,6 +122,10 @@ input{
     font-size: 2em;
 }
 
+.entered-text{
+    width: 90%;
+}
+
 .checkmark{
     width: 10%;
 }
@@ -135,7 +139,7 @@ input{
     border-radius: 3em;
     border: none;
     background-color: rgb(61, 224, 86);
-    font-size: 3em;
+    font-size: 2em;
 }
 
 button{

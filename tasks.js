@@ -47,27 +47,16 @@ const main = document.getElementById("main");
 const create = document.getElementById("new");
 
 create.addEventListener("click", () => {
+    const text = document.getElementById("title-box");
     const HTMLSTRING = `
     <div class="task flex" id="task" style="background-color: ${task.style.backgroundColor};">
-            <input type="text" id="title-box" class="task-title">
-            <div class="color-box">
-                <button class="colors" id="blue" style="background-color:cyan;"></button>
-                <button class="colors" id="green" style="background-color:chartreuse;"></button>
-                <button class="colors" id="red" style="background-color:crimson;"></button>
-                <button class="colors" id="orange" style="background-color:coral;"></button>
-                <button class="colors" id="purple" style="background-color:darkorchid;"></button>
-            </div>
-            <div class="color-box">
-                <button class="colors" id="brown" style="background-color:brown;"></button>
-                <button class="colors" id="grey" style="background-color:grey;"></button>
-                <button class="colors" id="white" style="background-color:white;"></button>
-                <button class="colors" id="yellow" style="background-color:yellow;"></button>
-                <button class="colors" id="pink" style="background-color:pink;"></button>
-            </div>
+            <h1 class="entered-text"> &nbsp &nbsp  ${text.value}</h1>
+            
             <div class="checkmark">
                 <button id="new" class="confirm"></button>
             </div>
         </div>
     `
+    text.value = "";
     main.insertAdjacentHTML("beforeend", HTMLSTRING);
 })
