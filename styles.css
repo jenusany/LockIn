@@ -54,12 +54,7 @@ a{
     padding-bottom: 2em;
 }
 
-input{
-    width: 100%;
-    height: 2em;
-    border: none;
-    border-bottom: 1px solid black;
-}
+
 
 .title{
     text-align: center;
@@ -70,6 +65,13 @@ input{
     display: flex;
 }
 
+input{
+    width: 100%;
+    height: 2em;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
 
 .main{
     width: 75%;
@@ -77,4 +79,42 @@ input{
 .tomorrow{
     text-align: center;
     width: 25%;
+}
+
+.task{
+    width: 80%;
+    margin: auto;
+    border-radius: 1em;
+    border: 1px solid black;
+}
+
+.colors{
+    width: 100%;
+    border-radius: 1em;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: center;
+    height: 1.3em;
+    border: 1px solid white;
+}
+
+.color-box{
+    width: 10%;
+    margin: auto;
+    margin-right: 10%;
+}
+
+.task-title{
+    width: 75%;
+    margin: auto;
+    background-color: grey;
+    opacity: 0.4;
+    border: none;
+    border-radius: 1em;
+    color: black;
+    font-size: 2em;
+}
+
+div{
+    
 }

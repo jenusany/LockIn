@@ -21,6 +21,37 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+const emailBox = document.getElementById('username');
+const passBox = document.getElementById('password');
+
+emailBox.addEventListener("keypress", (event) => {
+    if(event.key === 'Enter'){
+        passBox.focus();
+    }
+})
+
+passBox.addEventListener("keypress", (event) => {
+    if(event.key === 'Enter'){
+            event.preventDefault()
+            const email = document.getElementById('username').value;
+            const password = document.getElementById('password').value; 
+        
+            signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed up 
+            const user = userCredential.user;
+            window.location.href = "main.html";
+            // ...
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage)
+            // ..
+          });
+        }
+})
+
 const login = document.getElementById('login');
 
 login.addEventListener('click', function(event){
