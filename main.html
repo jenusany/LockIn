@@ -7,21 +7,31 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 class="title">LockIn</h1>
-    <div>
-        <div class="task flex" style="background-color:chartreuse;">
-            <input type="text" class="task-title">
+    <h1 class="title"><a style="color: rgb(13, 188, 13);" href="index.html">LockIn</a></h1>
+    <div id="main">
+        <div class="task flex task-color" id="task">
+            <input type="text" id="title-box" class="task-title">
             <div class="color-box">
-                <button class="colors" style="background-color:cyan;"></button>
-                <button class="colors" style="background-color:chartreuse;"></button>
-                <button class="colors" style="background-color:crimson;"></button>
-                <button class="colors" style="background-color:coral;"></button>
-                <button class="colors" style="background-color:darkorchid;"></button>
+                <button class="colors" id="blue" style="background-color:cyan;"></button>
+                <button class="colors" id="green" style="background-color:chartreuse;"></button>
+                <button class="colors" id="red" style="background-color:crimson;"></button>
+                <button class="colors" id="orange" style="background-color:coral;"></button>
+                <button class="colors" id="purple" style="background-color:darkorchid;"></button>
+            </div>
+            <div class="color-box">
+                <button class="colors" id="brown" style="background-color:brown;"></button>
+                <button class="colors" id="grey" style="background-color:grey;"></button>
+                <button class="colors" id="white" style="background-color:white;"></button>
+                <button class="colors" id="yellow" style="background-color:yellow;"></button>
+                <button class="colors" id="pink" style="background-color:pink;"></button>
+            </div>
+            <div class="checkmark">
+                <button id="new" class="confirm">✔</button>
             </div>
         </div>
     </div>
     
-    
+    <script src="tasks.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
