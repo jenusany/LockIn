@@ -1,62 +1,41 @@
-const task = document.getElementById(`task1`);
+const task = document.getElementById('task1');
 
-const red = document.getElementById("red1");
-red.addEventListener("click", () => {
-    task.style.backgroundColor = red.style.backgroundColor;
-})
-const orange = document.getElementById("orange1");
-orange.addEventListener("click", () => {
-    task.style.backgroundColor = orange.style.backgroundColor;
-})
-const yellow = document.getElementById("yellow1");
-yellow.addEventListener("click", () => {
-    task.style.backgroundColor = yellow.style.backgroundColor;
-})
-const green = document.getElementById("green1");
-green.addEventListener("click", () => {
-    task.style.backgroundColor = green.style.backgroundColor;
-})
-const blue = document.getElementById("blue1");
-blue.addEventListener("click", () => {
-    task.style.backgroundColor = blue.style.backgroundColor;
-})
-const purple = document.getElementById("purple1");
-purple.addEventListener("click", () => {
-    task.style.backgroundColor = purple.style.backgroundColor;
-})
-const pink = document.getElementById("pink1");
-pink.addEventListener("click", () => {
-    task.style.backgroundColor = pink.style.backgroundColor;
-})
-const brown = document.getElementById("brown1");
-brown.addEventListener("click", () => {
-    task.style.backgroundColor = brown.style.backgroundColor;
-})
-const grey = document.getElementById("grey1");
-grey.addEventListener("click", () => {
-    task.style.backgroundColor = grey.style.backgroundColor;
-})
-const white = document.getElementById("white1");
-white.addEventListener("click", () => {
-    task.style.backgroundColor = white.style.backgroundColor;
-})
-
+const colors = ["red1", "orange1", "yellow1", "green1", "blue1", "purple1", "pink1", "brown1", "grey1", "white1"];
+colors.forEach(color => {
+    const button = document.getElementById(color);
+    button.addEventListener("click", () => {
+        task.style.backgroundColor = button.style.backgroundColor;
+    });
+});
 
 const main = document.getElementById("main");
-
 const create = document.getElementById("new");
 
 create.addEventListener("click", () => {
     const text = document.getElementById("title-box");
-    const HTMLSTRING = `
-    <div class="task flex" id="task" style="background-color: ${task.style.backgroundColor};">
+    if (text.value === "") {
+        alert("ENTER TEXT INTO FIELD");
+        return;
+    }
+
+    const taskHTML = `
+        <div class="task flex" style="background-color: ${task.style.backgroundColor || 'white'};">
             <h1 class="entered-text"> &nbsp &nbsp  ${text.value}</h1>
-            
             <div class="checkmark">
-                <button id="new" class="confirm"></button>
+                <button class="delete">🚮</button>
             </div>
         </div>
-    `
+    `;
+
+
     text.value = "";
-    main.insertAdjacentHTML("beforeend", HTMLSTRING);
-})
+
+    main.insertAdjacentHTML("beforeend", taskHTML);
+});
+
+main.addEventListener("click", (event) => {
+    if (event.target && event.target.classList.contains("delete")) {
+        const taskDiv = event.target.closest(".task");
+        taskDiv.remove();
+    }
+});
