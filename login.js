@@ -17,7 +17,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 const emailBox = document.getElementById('username');
-localStorage.setItem('userEmail', emailBox.value);
+localStorage.setItem('userEmail', emailBox.value.toLowerCase());
 
 const passBox = document.getElementById('password');
 
@@ -36,7 +36,7 @@ passBox.addEventListener("keypress", (event) => {
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userEmail', email.toLowerCase());
 
             if (window.innerWidth <= 600){
                 window.location.href = "mainMobile.html";
@@ -63,7 +63,7 @@ login.addEventListener('click', function(event){
     .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        localStorage.setItem('userEmail', email);
+        localStorage.setItem('userEmail', email.toLowerCase());
         if (window.innerWidth <= 600){
             window.location.href = "mainMobile.html";
         }else{
