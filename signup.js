@@ -63,6 +63,7 @@ signup.addEventListener('click', function(event){
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
+    localStorage.setItem('userEmail', email);
     window.location.href = "main.html";
     // ...
   })
