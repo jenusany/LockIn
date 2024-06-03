@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {getFirestore, doc, setDoc, deleteDoc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
+import {getFirestore, doc, setDoc, deleteDoc, collection, getDocs} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -18,9 +17,27 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const email = localStorage.getItem('userEmail');
+
+const main = document.getElementById("main");
+
+const taskCollection = await getDocs(collection(db, email));
+taskCollection.forEach((doc) => {
+    const taskHTML = `
+        <div class="task flex" style="background-color: ${doc.data().color || 'white'};">
+            <h1 class="entered-text"> &nbsp &nbsp  ${doc.data().text}</h1>
+            <div class="checkmark">
+                <button class="delete"></button>
+            </div>
+        </div>
+    `;
+    main.insertAdjacentHTML("beforeend", taskHTML);
+});
+
+
 
 const task = document.getElementById('task1');
-
 const colors = ["red1", "orange1", "yellow1", "green1", "blue1", "purple1", "pink1", "brown1", "grey1", "white1"];
 colors.forEach(color => {
     const button = document.getElementById(color);
@@ -29,7 +46,6 @@ colors.forEach(color => {
     });
 });
 
-const main = document.getElementById("main");
 const create = document.getElementById("new");
 
 create.addEventListener("click", () => {
@@ -48,9 +64,6 @@ create.addEventListener("click", () => {
         </div>
     `;
 
-    const email = localStorage.getItem('userEmail'); 
-    const db = getFirestore(app);
-
     setDoc(doc(db, email, text.value), {
         color: task.style.backgroundColor || 'white',
         text: text.value
@@ -66,8 +79,6 @@ main.addEventListener("click", (event) => {
     if (event.target && event.target.classList.contains("delete")) {
         const taskDiv = event.target.closest(".task");
 
-        const email = localStorage.getItem('userEmail'); 
-        const db = getFirestore(app);
         deleteDoc(doc(db, email, taskDiv.innerText.substring(4)));
 
         taskDiv.remove();
