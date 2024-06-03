@@ -1,3 +1,13 @@
+const box = document.getElementById("mainBox");
+
+if(box){
+    if (window.innerWidth <= 600){
+        box.style.width = '90%';
+    }else{
+        box.style.width = '30%'
+    }
+}
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         console.log(entry)

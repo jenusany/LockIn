@@ -64,7 +64,11 @@ signup.addEventListener('click', function(event){
     // Signed up 
     const user = userCredential.user;
     localStorage.setItem('userEmail', email);
-    window.location.href = "main.html";
+    if (window.innerWidth <= 600){
+      window.location.href = "mainMobile.html";
+    }else{
+      window.location.href = "main.html";
+    }
     // ...
   })
   .catch((error) => {

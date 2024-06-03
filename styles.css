@@ -14,7 +14,6 @@ body{
 
 
 .login{
-    width: 30%;
     margin: auto;
     background-color: white;
     border-radius: 1em;
@@ -64,6 +63,13 @@ a{
     font-size: 5em;
     color: rgb(13, 188, 13);
 }
+
+.Mtitle{
+    text-align: center;
+    font-size: 3em;
+    color: rgb(13, 188, 13);
+}
+
 .flex{
     display: flex;
 }
@@ -85,6 +91,13 @@ input{
 }
 
 .task{
+    width: 80%;
+    margin: auto;
+    border-radius: 3em;
+    margin-bottom: 1em;
+}
+
+.Mtask{
     width: 80%;
     margin: auto;
     border-radius: 3em;
@@ -122,12 +135,34 @@ input{
     font-size: 2em;
 }
 
+.Mtask-title{
+    width: 60%;
+    margin: auto;
+    margin-left: 1%;
+    background-color: grey;
+    opacity: 0.5;
+    border: 3px solid white;
+    border-radius: 2em;
+    font-weight:bold;
+    font-size: 1.1em;
+}
+
 .entered-text{
-    width: 90%;
+    width: 85%;
+    padding-left: 5%;
+}
+
+.Mentered-text{
+    width: 70%;
+    padding-left: 10%;
 }
 
 .checkmark{
     width: 10%;
+}
+
+.Mcheckmark{
+    width: 20%;
 }
 
 .confirm{
@@ -151,8 +186,18 @@ input{
     border-radius: 3em;
     border: none;
     background-color: red;
-    font-size: 2em;
 }
+
+.Mdelete{
+    width: 150%;
+    height: 75%;
+    margin: auto;
+    margin-top: 25%;
+    border-radius: 3em;
+    border: none;
+    background-color: red;
+}
+
 
 button{
     cursor: pointer;

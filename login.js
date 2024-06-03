@@ -38,7 +38,11 @@ passBox.addEventListener("keypress", (event) => {
             const user = userCredential.user;
             localStorage.setItem('userEmail', email);
 
-            window.location.href = "main.html";
+            if (window.innerWidth <= 600){
+                window.location.href = "mainMobile.html";
+            }else{
+                window.location.href = "main.html";
+            }
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -60,7 +64,11 @@ login.addEventListener('click', function(event){
         // Signed in 
         const user = userCredential.user;
         localStorage.setItem('userEmail', email);
-        window.location.href = "main.html";
+        if (window.innerWidth <= 600){
+            window.location.href = "mainMobile.html";
+        }else{
+            window.location.href = "main.html";
+        }
     })
     .catch((error) => {
         const errorCode = error.code;

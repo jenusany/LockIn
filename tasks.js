@@ -24,21 +24,34 @@ const main = document.getElementById("main");
 
 const taskCollection = await getDocs(collection(db, email));
 taskCollection.forEach((doc) => {
-    const taskHTML = `
+    let taskHTML = ``;
+    if (window.innerWidth <= 600){
+        taskHTML = `
         <div class="task flex" style="background-color: ${doc.data().color || 'white'};">
-            <h1 class="entered-text"> &nbsp &nbsp  ${doc.data().text}</h1>
+            <h2 class="Mentered-text">${doc.data().text}</h2>
+            <div class="checkmark">
+                <button class="Mdelete"></button>
+            </div>
+        </div>
+    `;
+    }else{
+        taskHTML = `
+        <div class="task flex" style="background-color: ${doc.data().color || 'white'};">
+            <h1 class="entered-text">${doc.data().text}</h1>
             <div class="checkmark">
                 <button class="delete"></button>
             </div>
         </div>
     `;
+    }
+
     main.insertAdjacentHTML("beforeend", taskHTML);
 });
 
 
 
 const task = document.getElementById('task1');
-const colors = ["red1", "orange1", "yellow1", "green1", "blue1", "purple1", "pink1", "brown1", "grey1", "white1"];
+const colors = ["red1", "orange1", "yellow1", "green1", "blue1", "purple1", "pink1", "brown1", "grey1"];
 colors.forEach(color => {
     const button = document.getElementById(color);
     button.addEventListener("click", () => {
@@ -55,14 +68,27 @@ create.addEventListener("click", () => {
         return;
     }
 
-    const taskHTML = `
+    let taskHTML = ``;
+
+    if (window.innerWidth <= 600){
+        taskHTML = `
         <div class="task flex" style="background-color: ${task.style.backgroundColor || 'white'};">
-            <h1 class="entered-text"> &nbsp &nbsp  ${text.value}</h1>
+            <h2 class="Mentered-text"> ${text.value}</h2>
+            <div class="checkmark">
+                <button class="Mdelete"></button>
+            </div>
+        </div>
+    `;
+    }else{
+        taskHTML = `
+        <div class="task flex" style="background-color: ${task.style.backgroundColor || 'white'};">
+            <h1 class="entered-text"> ${text.value}</h1>
             <div class="checkmark">
                 <button class="delete"></button>
             </div>
         </div>
     `;
+    }
 
     setDoc(doc(db, email, text.value), {
         color: task.style.backgroundColor || 'white',
@@ -76,10 +102,11 @@ create.addEventListener("click", () => {
 });
 
 main.addEventListener("click", (event) => {
-    if (event.target && event.target.classList.contains("delete")) {
+    if (event.target && (event.target.classList.contains("delete") || event.target.classList.contains("Mdelete"))) {
+
         const taskDiv = event.target.closest(".task");
 
-        deleteDoc(doc(db, email, taskDiv.innerText.substring(4)));
+        deleteDoc(doc(db, email, taskDiv.innerText));
 
         taskDiv.remove();
     }
