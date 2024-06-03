@@ -19,8 +19,12 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+
+const email = localStorage.getItem('userEmail'); 
 const db = getDatabase();
 
 function addData(){
-    set(ref(db, ))
+    set(ref(db, email), {
+        content: localStorage.getItem('mainContent')
+    })
 }
