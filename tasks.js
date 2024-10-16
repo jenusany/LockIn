@@ -52,7 +52,7 @@ taskCollection.forEach((doc) => {
 
 
 const task = document.getElementById('task1');
-const colors = ["red1", "orange1", "green1", "blue1", "purple1"];
+const colors = ["red1", "orange1", "green1", "blue1", "purple1", "black1"];
 colors.forEach(color => {
     const button = document.getElementById(color);
     button.addEventListener("click", () => {
@@ -73,7 +73,7 @@ create.addEventListener("click", () => {
 
     if (window.innerWidth <= 600){
         taskHTML = `
-        <div class="task flex" style="background-color: ${task.style.borderColor || 'white'};">
+        <div class="task flex" style="border: 3px solid ${task.style.borderColor || 'black'};">
             <h2 class="Mentered-text"> ${text.value}</h2>
             <div class="checkmark">
                 <button class="Mdelete"></button>
@@ -82,7 +82,7 @@ create.addEventListener("click", () => {
     `;
     }else{
         taskHTML = `
-        <div class="task flex" style="border: 3px solid ${task.style.borderColor || 'white'};">
+        <div class="task flex" style="border: 3px solid ${task.style.borderColor || 'black'};">
             <h1 class="entered-text"> ${text.value}</h1>
             <div class="checkmark">
                 <button class="delete"></button>
